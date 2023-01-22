@@ -9,12 +9,13 @@ import tkinter.messagebox as msg
 # マスタiniファイルの相対パス
 MST_INI_FILEPATH = r'./DEF/mst.ini'
 
+# 回答結果出力ファイルの相対パス
 ANS_CSV_FILEPATH = r'./ANS/ansewr.csv'
 
 def read_mst():
     """
     処理名：
-        マスタ読み込み処理
+        マスタ情報読み込み処理
     引数：
         なし
     戻り値：
@@ -36,7 +37,7 @@ def read_mst():
     mst_yakusyoku = json.loads(mst_ini.get('YAKUSYOKU', 'YAKUSYOKU_NAME'))
     # 評価読み込み
     mst_hyouka = json.loads(mst_ini.get('HYOUKA', 'HYOUKA_STATE'))
-    # アンケート内容読み込み
+    # アンケート項目読み込み
     mst_question = json.loads(mst_ini.get('QUESTION', 'QUESTION_DATA'))
     
     return mst_ages, mst_busyo, mst_yakusyoku, mst_hyouka, mst_question
@@ -45,13 +46,13 @@ def read_mst():
 def MakeCsvAnswer():
     """
     処理名：
-        解答結果csv出力
+        回答結果csv出力処理
     引数：
         なし
     戻り値：
         なし
     """
-    # 解答結果を配列に格納
+    # 回答結果を配列に格納
     answer_list = [[
         combobox_age.current(),
         combobox_busyo.current(),
@@ -60,12 +61,12 @@ def MakeCsvAnswer():
         radiobtn_value_2.get(),
         radiobtn_value_3.get()
         ]]
-    # 解答結果をセット
+    # 回答結果をセット
     result_data = pd.DataFrame(answer_list)
     # csv出力（追記）
     result_data.to_csv(ANS_CSV_FILEPATH, index=False, header=False, mode='a')
     
-    msg.showinfo("解答送信", "解答の送信が完了しました")
+    msg.showinfo("回答送信", "回答の送信が完了しました")
 
 # メイン処理
 if __name__ == '__main__':
@@ -108,23 +109,23 @@ if __name__ == '__main__':
     combobox_yakusyoku.current(0)
     combobox_yakusyoku.place(x=60, y=120)
 
-    # 質問（ラベル）と解答（ラジオボタン）に関する設定
+    # アンケート項目（ラベル）と回答（ラジオボタン）に関する設定　-ここから-
 
     # y座標の初期値
     y_place = 160
     
-    # 質問（配列）分繰り返し
+    # アンケート項目（配列）分繰り返し
     for i in range(len(question_list)):
-        # 質問ラベルをセット
+        # アンケート項目ラベルをセット
         label_question = tk.Label(base, text=question_list[i])
         label_question.place(x=20, y=y_place)
         
         # x座標の初期値
         x_place = 30
         
-        # 解答（配列）分繰り返し
+        # 5段階評価（配列）分繰り返し
         for j in range(len(hyouka_list)) :
-            # 解答結果を保持する変数を設定
+            # 回答結果を保持する変数を設定
             if i == 0:
                 radiobtn_value = radiobtn_value_1 
             elif i == 1:
@@ -132,7 +133,7 @@ if __name__ == '__main__':
             elif i == 2:
                 radiobtn_value = radiobtn_value_3
            
-           # 解答ラジオボタンに関する設定
+           # 5段階評価ラジオボタンに関する設定
             radiobtn_hyouka = ttk.Radiobutton(
                 base,
                 text=hyouka_list[j],
@@ -145,10 +146,12 @@ if __name__ == '__main__':
 
         # y座標のインクリメント
         y_place += 40
+    
+    # アンケート項目（ラベル）と回答（ラジオボタン）に関する設定　-ここまで-
 
-    # 送信ボタンの設定
-    btn_answer = tk.Button(base, text="送信", command=MakeCsvAnswer)
-    btn_answer.place(x=20, y=y_place+30)
+    # 回答ボタンの設定
+    btn_answer = tk.Button(base, text="回答", command=MakeCsvAnswer)
+    btn_answer.place(x=330, y=y_place+30)
 
     # 画面の表示
     base.mainloop()
