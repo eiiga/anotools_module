@@ -16,6 +16,9 @@ def read_mst():
     """
     処理名：
         マスタ情報読み込み処理
+    処理概要：
+        「./DEF/mst.ini」ファイルからマスタ情報を読み込み、
+        それぞれの情報を配列に格納する。
     引数：
         なし
     戻り値：
@@ -35,7 +38,7 @@ def read_mst():
     mst_busyo = json.loads(mst_ini.get('BUSYO', 'BUSYO_NAME'))
     # 役職名読み込み
     mst_yakusyoku = json.loads(mst_ini.get('YAKUSYOKU', 'YAKUSYOKU_NAME'))
-    # 評価読み込み
+    # 5段階評価読み込み
     mst_hyouka = json.loads(mst_ini.get('HYOUKA', 'HYOUKA_STATE'))
     # アンケート項目読み込み
     mst_question = json.loads(mst_ini.get('QUESTION', 'QUESTION_DATA'))
@@ -43,10 +46,13 @@ def read_mst():
     return mst_ages, mst_busyo, mst_yakusyoku, mst_hyouka, mst_question
 
 
-def MakeCsvAnswer():
+def make_csv_answer():
     """
     処理名：
         回答結果csv出力処理
+    処理概要：
+        「回答」ボタン押下時、選択した項目について、
+        csvファイルに追記する。
     引数：
         なし
     戻り値：
@@ -150,7 +156,7 @@ if __name__ == '__main__':
     # アンケート項目（ラベル）と回答（ラジオボタン）に関する設定　-ここまで-
 
     # 回答ボタンの設定
-    btn_answer = tk.Button(base, text="回答", command=MakeCsvAnswer)
+    btn_answer = tk.Button(base, text="回答", command=make_csv_answer)
     btn_answer.place(x=330, y=y_place+30)
 
     # 画面の表示
