@@ -72,7 +72,9 @@ def make_csv_answer():
     # csv出力（追記）
     result_data.to_csv(ANS_CSV_FILEPATH, index=False, header=False, mode='a')
     
+    # 完了メッセージ出力
     msg.showinfo("回答送信", "回答の送信が完了しました")
+
 
 # メイン処理
 if __name__ == '__main__':
