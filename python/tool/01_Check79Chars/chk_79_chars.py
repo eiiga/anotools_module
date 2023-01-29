@@ -5,8 +5,7 @@ CHECK_FILE_PATH = './INPUT'
 RESULT_FILE_NAME = './RESULT/check_result.txt'
 CHEK_CHAR_LENGTH = 80
 
-# メイン処理
-if __name__ == '__main__':
+def check_py_chars_length():
     # 出力用ファイルを上書きモードで開く
     with open(RESULT_FILE_NAME, 'w') as out:
         # インプットフォルダ（サブディレクトリ含む）分繰り返し
@@ -26,7 +25,7 @@ if __name__ == '__main__':
                         # 1行当たりの文字数が規定より大きい場合
                         if len(line_str) >= CHEK_CHAR_LENGTH:
                             # 出力用の行数と文字数をセット
-                            # iは0始まりなのでインクリメント
+                            # ＊「i」は0始まりなのでインクリメント
                             chk_value = str(i+1) \
                                 + '行目：' \
                                 + str(len(line_str)) \
@@ -37,3 +36,8 @@ if __name__ == '__main__':
                             out.write('\n')
                 # 改行
                 out.write('\n')
+
+
+# メイン処理
+if __name__ == '__main__':
+    check_py_chars_length()
