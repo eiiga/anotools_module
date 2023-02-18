@@ -37,7 +37,7 @@ On Error GoTo btn_click_output_pdf_err
         
         ' 出力ファイル名をフルパスでセット
         ' (カレントディレクトリ)\PDF\注文書_<注文番号>.pdf
-        output_fullpath = CurDir & "\" & STR_PDF & "\" _
+        output_fullpath = ThisWorkbook.Path & "\" & STR_PDF & "\" _
             & STR_CHUMONSYO & "_" & chumon_no & PDF_KAKUCHOSHI
         
         ' PDFで保存
