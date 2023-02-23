@@ -58,7 +58,7 @@ def output_csv(week_weather_data):
 
     # 出力用csvファイルを開く
     with open('week_weather.csv', 'w') as f:
-        # csvwriterをインスタンス
+        # csv.writerをインスタンス
         output = csv.writer(f)
         # 1週間の天気情報をcsvファイルに出力
         output.writerow(week_weather_data)
