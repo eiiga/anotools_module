@@ -2,6 +2,7 @@ package dto;
 
 import java.io.Serializable;
 
+// ディレクトリ作成DTOクラス
 public class PathInfoDTO  implements Serializable{
 	
 	/*
@@ -10,11 +11,11 @@ public class PathInfoDTO  implements Serializable{
 	 *	・出力ディレクトリパス（フルパス）
 	 *	・処理完了メッセージ
 	 */
-
 	private String str_def_path;
 	private String str_out_path;
 	private String result_msg;
 	
+	// 定義ファイルパスのゲッターとセッター
 	public String getStrDefPath() {
 		return str_def_path;
 	}
@@ -22,6 +23,7 @@ public class PathInfoDTO  implements Serializable{
 		this.str_def_path = str_def_path;
 	}
 	
+	// 出力ディレクトリのゲッターとセッター
 	public String getStrOutPath() {
 		return str_out_path;
 	}
@@ -29,6 +31,7 @@ public class PathInfoDTO  implements Serializable{
 		this.str_out_path = str_out_path;
 	}
 	
+	// 処理完了メッセージのゲッターとセッター
 	public String getResultMsg() {
 		return result_msg;
 	}
