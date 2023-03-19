@@ -49,17 +49,15 @@ Public Sub btn_click_color()
         ' タスクの数だけ繰り返し
         Do Until .Cells(i_row, TASK_COL).Value = ""
             
-            ' ステータス列カウンタ初期化
+            ' 進捗ステータス列カウンタ初期化
             i_color_col = START_COLOR_COL
             
             ' タスク名を取得
             task_name = .Cells(i_row, TASK_COL).Value
-            
-            ' ステータス値を取得
-            status_value = .Cells(i_row, TASK_STATUS_COL) \ 10
-            
-            ' ステータス値 < 0 もしくは ステータス値 > 10 の場合
-            If status_value < 0 Or status_value > 10 Then
+                        
+            ' 進捗ステータス < 0 もしくは 進捗ステータス > 100 の場合
+            If .Cells(i_row, TASK_STATUS_COL).Value < 0 Or _
+                .Cells(i_row, TASK_STATUS_COL).Value > 100 Then
                 
                 ' 入力エラーを出力
                 MsgBox "入力エラー：" & task_name & vbCrLf & _
@@ -70,10 +68,15 @@ Public Sub btn_click_color()
                 
             End If
             
+            ' 進捗ステータス値を算出
+            status_value = .Cells(i_row, TASK_STATUS_COL) \ 10
+            
+
+            
             ' 10回繰り返し
             For i_status = 1 To 10
                 
-                ' ステータス値内の場合
+                ' 進捗ステータス値内の場合
                 If i_status <= status_value Then
                     ' 基準色で色塗り
                     .Cells(i_row, i_color_col).Interior.Color = color_code
@@ -84,12 +87,12 @@ Public Sub btn_click_color()
                 
                 End If
                 
-                ' ステータス列カウンタインクリメント
+                ' 進捗ステータス列カウンタインクリメント
                 i_color_col = i_color_col + 1
             
             Next i_status
             
-            タスク行カウンタインクリメント
+            'タスク行カウンタインクリメント
             i_row = i_row + 1
         Loop
     
