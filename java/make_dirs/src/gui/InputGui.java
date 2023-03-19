@@ -72,7 +72,7 @@ public class InputGui extends JFrame implements ActionListener{
 			// 出力先のディレクトリパスをセット
 			pathdto.setStrOutPath(txt_output_dir_path.getText());
 			
-			// ディレクトリ作成処理クラスのインスタンス
+			// ディレクトリ作成クラスのインスタンス
 			MkdirsFnc mf = new MkdirsFnc();
 			
 			// ディレクトリ作成処理呼び出し
