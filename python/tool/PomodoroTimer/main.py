@@ -39,7 +39,7 @@ def start_sound(is_flg):
         # 作業開始の場合
         if is_flg:
             os.system(CMD_START_WORK_SOUND)
-        # 作業終了の場合
+        # 休憩開始の場合
         else:
             os.system(CMD_START_REST_SOUND)
 
@@ -51,7 +51,7 @@ def count_timer(Is_flg, kind_tmp_time, msg_time):
             
     # 時間が0になるまで繰り返し
     while kind_tmp_time.strftime("%H:%M:%S") != "00:00:00":
-                
+
         # コンソール初期化処理
         os.system(CMD_CLEAR)
                 
@@ -62,14 +62,14 @@ def count_timer(Is_flg, kind_tmp_time, msg_time):
         # 1秒待機
         time.sleep(1)
                 
-        # 作業時間を1秒マイナス
+        # 時間を1秒マイナス
         kind_tmp_time = kind_tmp_time - datetime.timedelta(seconds=1)
     
     # フラグを反転させて返す
     return not Is_flg
 
 
-# タイマー開始処理関数
+# タイマー開始関数
 def start_timer(timer_list):
     # True:作業 False:休憩
     is_work_time = True
@@ -127,5 +127,5 @@ if __name__ == '__main__':
     # タイマーセットアップ関数呼び出し
     input_timer_list = setup_timer()
     
-    # タイマー開始処理関数呼び出し
+    # タイマー開始関数呼び出し
     start_timer(input_timer_list)
