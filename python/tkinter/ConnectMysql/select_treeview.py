@@ -95,7 +95,7 @@ def btn_select_click():
     
     # 検索失敗処理    
     if row_data == None:
-        msg.showinfo("DBエラー", "SELECTに失敗しました。")
+        msg.showinfo("検索エラー", "SELECTに失敗しました。")
         
         return
 
@@ -104,7 +104,8 @@ def btn_select_click():
         msg.showinfo("検索結果", "検索結果：0件です")
     else:
         for row in row_data:
-            tree.insert(parent="", index="end", values=(row["user_id"], row["user_name"]))
+            tree.insert(
+                parent="", index="end", values=(row["user_id"], row["user_name"]))
 
 
 # メイン処理
@@ -120,7 +121,12 @@ if __name__ == '__main__':
     select_id = tk.StringVar()
 
     #検索フォーム
-    cb_select_kbn = ttk.Combobox(base, state="readonly", width=5, values=BASE_LIST_SELECT_KBN, textvariable=select_kbn)
+    cb_select_kbn = ttk.Combobox(
+        base, 
+        state="readonly", 
+        width=5, 
+        values=BASE_LIST_SELECT_KBN, 
+        textvariable=select_kbn)
     cb_select_kbn.set(BASE_LIST_SELECT_KBN[0])
     cb_select_kbn.place(x=100, y=20)
     tx_String_search_data = tk.Entry(base, textvariable=select_id)
