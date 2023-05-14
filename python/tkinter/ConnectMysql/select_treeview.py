@@ -14,7 +14,7 @@ MYSQL_AUTH = 'mysql_native_password'
 
 # SQL(SELECT)
 SQL_SELECT_ALL = "SELECT * FROM test_table"
-SQL_SELECT_WHERE = SQL_SELECT_ALL + " WHERE table_id = %s"
+SQL_SELECT_WHERE = SQL_SELECT_ALL + " WHERE user_id = %s"
 
 # プルダウンの設定値
 BASE_LIST_SELECT_KBN = ['ALL', 'ID']
@@ -30,6 +30,7 @@ def connector_mysql():
             user=MYSQL_USER
             , password=MYSQL_PASSWORD
             , host=MYSQL_HOST
+            , port=MYSQL_PORT
             , database=MYSQL_DATABASE
             , auth_plugin=MYSQL_AUTH
         )
