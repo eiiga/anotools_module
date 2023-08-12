@@ -101,7 +101,7 @@ class frameDragDrop(tk.LabelFrame):
 
         # 例外処理
         except Exception as e:
-            print(e)
+            self.textbox.insert(tk.END,f"エラー：{e}")
         
 
 # メイン処理
