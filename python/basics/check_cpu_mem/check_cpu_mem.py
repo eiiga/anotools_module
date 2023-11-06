@@ -34,6 +34,8 @@ if __name__ == '__main__':
     while True:
         # スケジューラを定期実行
         schedule.run_pending()
+        
+        # 無限ループで実行し続けによる処理負荷がかからないように待機させる
         time.sleep(30)
     
 
