@@ -1,8 +1,6 @@
-import datetime
 import logging
 import psutil
 import threading
-import time
 
 # 日時：ログレベル：スレッド名：モジュール名：関数名：メッセージを出力する
 LOGGING_FORMAT = '%(asctime)s:' \
