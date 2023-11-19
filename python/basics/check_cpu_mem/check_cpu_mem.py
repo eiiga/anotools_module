@@ -16,7 +16,7 @@ logging.basicConfig(
 )
 
 # N秒間隔で測定
-INTERVAL_SEC= 60
+INTERVAL_SEC= 59
 
 # CPUとMemoryの使用率を出力する関数
 def check_cpu_memory(event):
