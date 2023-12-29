@@ -61,3 +61,6 @@ def output_csv_from_mysql():
 if __name__ == '__main__':
     # mysqlからデータをcsvに出力する関数実行
     output_csv_from_mysql()
+
+# 参考
+# https://www.geeksforgeeks.org/how-to-save-a-python-dictionary-to-a-csv-file/
