@@ -1,0 +1,52 @@
+.container-header {
+    text-align: center;
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    color: #6091d3;/*文字色*/
+    background: #FFF;
+    border: solid 3px #6091d3;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+
+.container-main {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    color: #6091d3;/*文字色*/
+    background: #FFF;
+    border: solid 3px #6091d3;/*線*/    
+    border-radius: 10px;/*角の丸み*/
+}
+
+.form-item label{
+    display: block;
+}
+
+.form-item input{
+    display: block;
+    margin-bottom: 10px;
+    outline: ridge 0.5px #6091d3;
+    border-radius: 2px;/*角の丸み*/
+}
+
+.form-message input{
+    display: block;
+}
+
+.form-message input{
+    display: block;
+    width: 50%;
+    line-height: 10;
+    outline: ridge 0.5px #6091d3;
+    border-radius: 2px;/*角の丸み*/
+}
+
+.container-main button {
+    background: #d8af4e;
+    color: #FFF;
+    border: none;
+    padding: 0.5em 1em;
+    font-size: 15px;
+    margin: 2em 0;
+}
