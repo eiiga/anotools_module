@@ -1,4 +1,5 @@
 import os
+import signal
 
 import configparser
 from selenium import webdriver
@@ -50,32 +51,38 @@ def read_conf_file():
 def output_from_conf_to_html():
     # conf情報取得処理呼び出し
     template_info_dict = read_conf_file()
-    
-    # mac用
-    chrome = webdriver.Chrome()
-    # Windows用：chromedriverのパスを指定
-    # chrome = webdriver.Chrome("ここにパスを記載する")
-    
+
     # カレントディレクトリを取得
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    
-    html_file_full_path = os.path.join(current_dir, "..", HTML_FILE_PATH)
-    
-    chrome.get("file://" + html_file_full_path)
 
-    # HTMLのIDを取得
-    html_id_username        = chrome.find_element(By.ID, CONF_KEY_USERNAME)
-    html_id_username_kana   = chrome.find_element(By.ID, CONF_KEY_USERNAME_KANA)
-    html_id_company_name    = chrome.find_element(By.ID, CONF_KEY_COMPANY_NAME)
-    html_id_email_address   = chrome.find_element(By.ID, CONF_KEY_EMAIL_ADDRESS)
-    html_id_tel_no          = chrome.find_element(By.ID, CONF_KEY_TEL_NO)
-    
-    # HTMLに値を設定
-    html_id_username.send_keys(template_info_dict[CONF_KEY_USERNAME])
-    html_id_username_kana.send_keys(template_info_dict[CONF_KEY_USERNAME_KANA])
-    html_id_company_name.send_keys(template_info_dict[CONF_KEY_COMPANY_NAME])
-    html_id_email_address.send_keys(template_info_dict[CONF_KEY_EMAIL_ADDRESS])
-    html_id_tel_no.send_keys(template_info_dict[CONF_KEY_TEL_NO])
+    html_file_full_path = os.path.join(current_dir, "..", HTML_FILE_PATH)
+
+    # mac用
+    with webdriver.Chrome() as chrome:
+    # Windows用：chromedriverのパスを指定
+    # with webdriver.Chrome("ここにパスを記載する") as chrome:
+        try:
+            chrome.get("file://" + html_file_full_path)
+
+            # HTMLのIDを取得
+            html_id_username        = chrome.find_element(By.ID, CONF_KEY_USERNAME)
+            html_id_username_kana   = chrome.find_element(By.ID, CONF_KEY_USERNAME_KANA)
+            html_id_company_name    = chrome.find_element(By.ID, CONF_KEY_COMPANY_NAME)
+            html_id_email_address   = chrome.find_element(By.ID, CONF_KEY_EMAIL_ADDRESS)
+            html_id_tel_no          = chrome.find_element(By.ID, CONF_KEY_TEL_NO)
+            
+            # HTMLに値を設定
+            html_id_username.send_keys(template_info_dict[CONF_KEY_USERNAME])
+            html_id_username_kana.send_keys(template_info_dict[CONF_KEY_USERNAME_KANA])
+            html_id_company_name.send_keys(template_info_dict[CONF_KEY_COMPANY_NAME])
+            html_id_email_address.send_keys(template_info_dict[CONF_KEY_EMAIL_ADDRESS])
+            html_id_tel_no.send_keys(template_info_dict[CONF_KEY_TEL_NO])
+        
+        except Exception as e:
+            print(e)
+        
+        finally:
+            os.kill(chrome.service.process.pid, signal.SIGTERM)
 
 
 # メイン処理
