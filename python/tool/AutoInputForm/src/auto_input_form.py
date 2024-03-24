@@ -55,6 +55,7 @@ def output_from_conf_to_html():
     # カレントディレクトリを取得
     current_dir = os.path.dirname(os.path.abspath(__file__))
 
+    # HTML格納先のディレクトリパスを取得
     html_file_full_path = os.path.join(current_dir, "..", HTML_FILE_PATH)
 
     # mac用
@@ -70,18 +71,20 @@ def output_from_conf_to_html():
             html_id_company_name    = chrome.find_element(By.ID, CONF_KEY_COMPANY_NAME)
             html_id_email_address   = chrome.find_element(By.ID, CONF_KEY_EMAIL_ADDRESS)
             html_id_tel_no          = chrome.find_element(By.ID, CONF_KEY_TEL_NO)
-            
+
             # HTMLに値を設定
             html_id_username.send_keys(template_info_dict[CONF_KEY_USERNAME])
             html_id_username_kana.send_keys(template_info_dict[CONF_KEY_USERNAME_KANA])
             html_id_company_name.send_keys(template_info_dict[CONF_KEY_COMPANY_NAME])
             html_id_email_address.send_keys(template_info_dict[CONF_KEY_EMAIL_ADDRESS])
             html_id_tel_no.send_keys(template_info_dict[CONF_KEY_TEL_NO])
-        
+
+        # 例外エラー処理
         except Exception as e:
             print(e)
-        
+
         finally:
+            # ChromeDriverのみ終了し、ブラウザはそのまま残す
             os.kill(chrome.service.process.pid, signal.SIGTERM)
 
 
