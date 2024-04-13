@@ -16,7 +16,7 @@ datas = input_data.to_numpy()
 # カラーマップの設定
 colors = plt.cm.BuPu(np.linspace(0, 0.5, len(year_rows)))
 
-# 行数を取得
+# データ部の行数を取得
 n_rows = len(datas)
 
 # グラフのインデックスと幅を設定
