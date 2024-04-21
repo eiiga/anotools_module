@@ -17,6 +17,7 @@ class TestCheckInputNumber(unittest.TestCase):
         del self.test_target
         print(f'{"-"*5}テスト終了{"-"*5}')
 
+    # 入力値と期待値が一致しているか確認
     def test_check_input_number(self):
         print(f'{"-"*3}値の確認テスト{"-"*3}')
         
@@ -27,6 +28,7 @@ class TestCheckInputNumber(unittest.TestCase):
         # 失敗例
         # self.assertEqual(self.test_target.check_input_number(4), 10)
 
+    # 例外処理が想定通り動くか確認
     def test_check_input_number_raise(self):
         print(f'{"-"*3}例外の確認テスト{"-"*3}')
         with self.assertRaises(ValueError):
