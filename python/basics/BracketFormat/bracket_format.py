@@ -1,3 +1,10 @@
+import logging
+
+# 日付：|ログレベル|:|モジュール名|:|ファンクション名|:メッセージ
+LOG_FORMATER = '%(asctime)s|%(levelname)s|%(module)s|%(funcName)s|%(message)s'
+
+# ログレベル
+logging.basicConfig(level=logging.INFO, format=LOG_FORMATER)
 
 # 括弧判定処理
 def check_bracket_format(chars):
@@ -18,12 +25,13 @@ def check_bracket_format(chars):
         if char in bracket_dict.values():
             # 閉じ括弧リストがからの場合
             if not stack_bracket_list:
-                print(char + 'に対応する括弧がリストに格納されていません')
+                logging.error('「' + char + '」に対応する閉じ括弧がリストに格納されていません')
                 return False
             
             # 対象の閉じ括弧が閉じ括弧リストの末端ではない場合
             if char != stack_bracket_list[-1]:
-                print('期待値：' + char + '実測値：' + stack_bracket_list[-1])
+                logging.error('閉じ括弧の順序が不正です')
+                logging.error('期待値：' + char + '| 実測値：' + stack_bracket_list[-1])
                 return False
             else:
                 # 閉じ括弧リストの末端を取り出す
@@ -31,15 +39,15 @@ def check_bracket_format(chars):
     
     # 閉じ括弧リストに括弧が残っている場合
     if stack_bracket_list:
-        print('閉じ括弧が残っています：')
-        [print(c, end=',') for c in stack_bracket_list]
+        logging.error('閉じ括弧がリストに残っています')
+        logging.error('残っている閉じ括弧：' + str(stack_bracket_list))
         return False
     
-    print('チェック問題なし')
+    logging.info('チェック問題なし')
     return True
 
 
 # メイン処理
 if __name__ == '__main__':
-    data = '{ss[dd]ff(sd)}]'
-    print(check_bracket_format(data))
+    data = '{ss[dd]ff(sd{)}}'
+    check_bracket_format(data)
