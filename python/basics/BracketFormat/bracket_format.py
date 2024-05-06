@@ -1,6 +1,6 @@
 import logging
 
-# 日付：|ログレベル|:|モジュール名|:|ファンクション名|:メッセージ
+# 日付|ログレベル|モジュール名|ファンクション名|メッセージ
 LOG_FORMATER = '%(asctime)s|%(levelname)s|%(module)s|%(funcName)s|%(message)s'
 
 # ログレベル
@@ -23,7 +23,7 @@ def check_bracket_format(chars):
         
         # 閉じ括弧判定
         if char in bracket_dict.values():
-            # 閉じ括弧リストがからの場合
+            # 閉じ括弧リストが空の場合
             if not stack_bracket_list:
                 logging.error('「' + char + '」に対応する閉じ括弧がリストに格納されていません')
                 return False
