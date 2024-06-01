@@ -1,15 +1,18 @@
 import logging
 
+
+# 開始・終了文字列
 START_VALUE = 'ABC'
 END_VALUE = 'XYZ'
+
 # 日付|ログレベル|モジュール名|ファンクション名|メッセージ
 LOG_FORMATER = '%(asctime)s|%(levelname)s|%(module)s|%(funcName)s|%(message)s'
 
 # ログレベル
 logging.basicConfig(level=logging.INFO, format=LOG_FORMATER)
 
-# 指定したバイト数で文字列を区切り配列で返す
-def split_by_n_bytes(input_str):
+# 開始終了文字列判定
+def split_start_end_value(input_str):
     # 初期値
     check_value = ''    # 開始終了文字列判定用
     result_value = ''   # 実行結果出力用
@@ -17,7 +20,7 @@ def split_by_n_bytes(input_str):
 
     # 文字列を1文字ずつ繰り返す
     for i in input_str:
-        # 開始終了文字列判定用文字列が3文字より大きい
+        # 開始終了文字列判定用文字列が2文字より大きい
         if len(check_value) > 2:
             # 先頭の1文字を削除し、1文字追加（3文字をキープ）
             check_value = check_value[1:] + i
@@ -65,7 +68,7 @@ def split_by_n_bytes(input_str):
 if __name__ == '__main__':
     data1 = 'SRFSABCDEFGHIJKLMNOPQRSTUVWXYZ11'
     data2 = 'SRFSABCDEFABCGHIJKLMNOPQRSTUVWXYZ11'
-    data3 = 'SRFSABCDEFGHIJKLMNOPQRSTUVWXYZ11XYZ'
-    split_by_n_bytes(data1)
-    split_by_n_bytes(data2)
-    split_by_n_bytes(data3)
+    data3 = 'SRXYZFSABCDEFGHIJKLMNOPQRSTUVWXYZ11'
+    split_start_end_value(data1)
+    split_start_end_value(data2)
+    split_start_end_value(data3)
