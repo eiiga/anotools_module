@@ -7,8 +7,8 @@
   	"subdata1-2":456
   },
   "subdata2":[
-  	{"subdata2-1-1":"ABC", "subdata2-1-2":"abc"},
-  	{"subdata2-2-1":"DEF", "subdata2-2-2":"def"},
-  	{"subdata2-3-1":"GHI", "subdata2-3-2":"ghi"}
+  	{"subdata2-1":"ABC", "subdata2-2":"abc"},
+  	{"subdata2-1":"DEF", "subdata2-2":"def"},
+  	{"subdata2-1":"GHI", "subdata2-2":"ghi"}
   ]
 }
