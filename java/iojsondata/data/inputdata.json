@@ -1,0 +1,14 @@
+{
+  "id" : "002",
+  "user_name" : "huga huga",
+  "age" : 30,
+  "subdata1":{
+  	"subdata1-1":123,
+  	"subdata1-2":456
+  },
+  "subdata2":[
+  	{"subdata2-1":"ABC", "subdata2-2":"abc"},
+  	{"subdata2-1":"DEF", "subdata2-2":"def"},
+  	{"subdata2-1":"GHI", "subdata2-2":"ghi"}
+  ]
+}
