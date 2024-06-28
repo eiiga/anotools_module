@@ -18,10 +18,8 @@ public class CheckNum3Multiplication {
 			return false;
 		}
 		
-		
 		return true;
 	}
-	
 	
 	// 入力値を3倍にして返す処理
 	public int multipicationThree(String num) {
