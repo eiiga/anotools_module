@@ -24,7 +24,7 @@ public class CheckNum3Multiplication {
 	
 	
 	// 入力値を3倍にして返す処理
-	public int multipicationTree(String num) {
+	public int multipicationThree(String num) {
 		
 		return Integer.parseInt(num) * 3;
 		

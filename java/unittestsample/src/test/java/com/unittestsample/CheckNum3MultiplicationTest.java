@@ -28,17 +28,38 @@ class CheckNum3MultiplicationTest{
 	static void tearDownAfterClass() throws Exception {
 		System.out.println("=====テスト終了=====");
 	}
-
+	
+	@Test
+	@DisplayName("入力値が整数か判定処理---正常系---")
+	void isCheckNumIntTest1() {
+		  String input_num = "10";  
+		  		  
+		  assertTrue(cn3m.isCheckNumInt(input_num));
+	}
+	
+	@Test
+	@DisplayName("入力値が整数か判定処理---異常系(null)---")
+	void isCheckNumIntTest2() {
+		  String input_num = null;  
+		  		  
+		  assertFalse(cn3m.isCheckNumInt(input_num));
+	}
+	
+	@Test
+	@DisplayName("入力値が整数か判定処理---異常系(整数ではない)---")
+	void isCheckNumIntTest3() {
+		  String input_num = "11.11";  
+		  		  
+		  assertFalse(cn3m.isCheckNumInt(input_num));
+	}	
+	
 	@Test
 	@DisplayName("入力値を3倍にして返す処理")
-	void multipicationTreeTest() {
-		  String input_num = "1";
-		  
-		  int result_num = cn3m.multipicationTree(input_num);
-		  
+	void multipicationThreeTest() {
+		  String input_num = "1";  
 		  int ans_num = 3;
 		  		  
-		  assertEquals(result_num, ans_num);
+		  assertEquals(cn3m.multipicationThree(input_num), ans_num);
 	}
 
 }
