@@ -38,7 +38,7 @@ def make_test_case_main():
     # 列カウンタ初期化
     i_col = CASE_START_COL
 
-    # [ケースの番号]行が空白になるまで繰り返し
+    # [ケースの番号]列が空白になるまで繰り返し
     while not WorkSheet.cell(row=CASE_NUM_START_ROW, column=i_col).value is None:
         
         # 行カウンタ初期化
