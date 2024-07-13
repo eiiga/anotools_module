@@ -1,0 +1,11 @@
+date,prefecture,point,value,Flag
+2024-07-01,Fukuoka,40,AAA,True
+2024-07-02,Tokyo,50,BBB,True
+2024-07-03,Osaka,10,CCC,True
+2024-07-04,Hokkaido,20,,True
+2024-07-05,Okinawa,30,AAA,True
+2024-07-01,Fukuoka,40,BBB,False
+2024-07-02,Tokyo,50,CCC,False
+2024-07-03,Osaka,10,,False
+2024-07-04,Hokkaido,20,AAA,False
+2024-07-05,Okinawa,30,BBB,False
