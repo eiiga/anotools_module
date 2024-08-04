@@ -29,23 +29,30 @@ def check_answer():
         # 正解数と確率分母を初期化
         result_Count.set(0)
         result_Denominator.set(0)
-    
+
+    # 回答ラベルの文字を更新
+    label_result["text"] = str(result_Count.get()) + "回正解：1/" + str(result_Denominator.get())
+
+    # 直近回答数が10より多い
     if len(list_ans_top_10) > 10:
+        # 一番古い正解を削除
         list_ans_top_10.pop(0)
 
+    # 回答乱数が0：左、1：右をセット
     if ans_int == 0:
         list_ans_top_10.append('左')
     else:
         list_ans_top_10.append('          右')
 
-    # ラベルの文字を更新
-    label_result["text"] = str(result_Count.get()) + "回正解：1/" + str(result_Denominator.get())
-    
+    # 回答一覧ラベル文字列初期化
     ans_top_10 = ''
-    
+
+    # 直近10回分の回答リスト分繰り返し
     for ans in list_ans_top_10:
+        # 回答ラベル文字列をセット
         ans_top_10 = ans_top_10 + ans + '\n'
-    
+
+    # 回答一覧ラベルをセット
     label_ans_list["text"] = ans_top_10
 
 
