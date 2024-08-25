@@ -1,5 +1,6 @@
 package com.amounttaxmerge.util;
 
+// 商品名・金額・税DAOクラス
 public class NameAmountTaxDao {
 
 	private String name;	// 商品名
@@ -32,5 +33,4 @@ public class NameAmountTaxDao {
 	public void setTax(String tax) {
 		this.tax = tax;
 	}
-
 }
