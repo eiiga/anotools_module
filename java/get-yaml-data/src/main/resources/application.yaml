@@ -1,0 +1,8 @@
+app:
+  version: "1.0.0"
+  data:
+    element1: "hoge1"
+    element2: "hoge2"
+    element3:
+      element3-1: "hoge3-1"
+      element3-2: "hoge3-2" 
