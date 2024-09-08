@@ -1,6 +1,6 @@
 package com.example.demo.get.data.service;
 
-import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ public class RestServiceImpl implements RestService {
 	GetDataFromYaml getDataFromYaml;
 
 	@Override
-	public List<String> getDataFromYamList() {
+	public Map<String, String> getDataFromYamList() {
 
 		return getDataFromYaml.getDatas();
 	}

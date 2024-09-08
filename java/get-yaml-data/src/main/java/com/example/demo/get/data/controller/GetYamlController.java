@@ -1,6 +1,6 @@
 package com.example.demo.get.data.controller;
 
-import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +16,7 @@ public class GetYamlController {
 
 	// yamlデータを取得()
 	@GetMapping("/rest/get/yamldata")
-	public List<String> getYamlDatas() {
+	public Map<String, String> getYamlDatas() {
 		return restService.getDataFromYamList();
 	}
 

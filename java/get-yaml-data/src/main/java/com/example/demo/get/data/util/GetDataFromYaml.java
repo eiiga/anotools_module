@@ -1,7 +1,7 @@
 package com.example.demo.get.data.util;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -30,17 +30,17 @@ public class GetDataFromYaml {
 	 * 
 	 * @reurn yamlのデータ配列
 	 */
-	public List<String> getDatas() {
+	public Map<String, String> getDatas() {
 
 		// 返却用リスト
-		final List<String> datas = new ArrayList<String>();
+		final Map<String, String> datas = new TreeMap<String, String>();
 
 		// yamlの値を追加
-		datas.add(appVersion);
-		datas.add(element1);
-		datas.add(element2);
-		datas.add(element3_1);
-		datas.add(element3_2);
+		datas.put("version", appVersion);
+		datas.put("element1", element1);
+		datas.put("element2", element2);
+		datas.put("element3-1", element3_1);
+		datas.put("element3-2", element3_2);
 
 		return datas;
 
