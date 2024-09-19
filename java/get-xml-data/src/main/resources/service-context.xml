@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context 
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Beanの定義 -->
+    <bean id="GetDataFromXml#1" class="com.example.demo.get.data.bean.GetDataBean">
+        <property name="appVersion" value="1.0.1" />
+        <property name="element1" value="huga1" />
+        <property name="element2" value="huga2" />
+        <property name="element3_1" value="huga3-1" />
+        <property name="element3_2" value="huga3-2" />       
+    </bean>
+
+</beans>
