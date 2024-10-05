@@ -1,0 +1,10 @@
+INSERT INTO M_PRODUCT_INFORMATION(product_code, product_name, amount) VALUES('0001', '商品A', 100);
+INSERT INTO M_PRODUCT_INFORMATION(product_code, product_name, amount) VALUES('0002', '商品B', 120);
+INSERT INTO M_PRODUCT_INFORMATION(product_code, product_name, amount) VALUES('0003', '商品C', 130);
+INSERT INTO M_PRODUCT_INFORMATION(product_code, product_name, amount) VALUES('0004', '商品D', 160);
+INSERT INTO M_PRODUCT_INFORMATION(product_code, product_name, amount) VALUES('0005', '商品E', 110);
+INSERT INTO M_PRODUCT_INFORMATION(product_code, product_name, amount) VALUES('0006', '商品F', 140);
+INSERT INTO M_PRODUCT_INFORMATION(product_code, product_name, amount) VALUES('0007', '商品G', 170);
+INSERT INTO M_PRODUCT_INFORMATION(product_code, product_name, amount) VALUES('0008', '商品H', 190);
+INSERT INTO M_PRODUCT_INFORMATION(product_code, product_name, amount) VALUES('0009', '商品I', 200);
+INSERT INTO M_PRODUCT_INFORMATION(product_code, product_name, amount) VALUES('0010', '商品J', 80);
