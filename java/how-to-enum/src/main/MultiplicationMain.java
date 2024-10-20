@@ -12,10 +12,13 @@ public class MultiplicationMain {
 		Random rnd = new Random();
 		int value = rnd.nextInt(101) + 1;
 
+		// 初期値出力
 		System.out.println("初期値：" + value);
 
+		// 定数分繰り返し
 		for (MultiplicationConstant mc : MultiplicationConstant.values()) {
 
+			// 計算結果出力
 			System.out.println(value + ", " + mc + ": " + mc.getMultiplicationConstant(value));
 		}
 
