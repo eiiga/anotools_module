@@ -24,6 +24,10 @@ public class ExpectedValueCheckMain {
 		// HashMap形式でデータを格納
 		HashMap<Integer, HashMap<String, String>> expectedDatas = CsvToHashMapConverter.resultHashMap(expectedFile);
 
+		// 相互比較（期待値 -> 実測値）
 		InputExpectedChecker.expectedInputChecker(expectedDatas, inputDatas);
+
+		// 相互比較（実測値 -> 期待値）
+		InputExpectedChecker.inputExpectedChecker(expectedDatas, inputDatas);
 	}
 }
