@@ -35,7 +35,7 @@ public class InputExpectedChecker {
       for (CsvHeaderConstant keyHeader : keyHeaders) {
 
         // ヘッダ部が日付の項目はチェック対象外
-        if (CsvHeaderConstant.DATE.equals(keyHeader)) {
+        if (CsvHeaderConstant.TARGET_DATE.equals(keyHeader)) {
           continue;
         }
 
@@ -98,7 +98,7 @@ public class InputExpectedChecker {
         System.out.println("===== データ：" + keyCount + " =====");
         // csvヘッダ部配列要素分繰り返し
         for (CsvHeaderConstant keyHeader : keyHeaders) {
-          if (CsvHeaderConstant.DATE.equals(keyHeader)) {
+          if (CsvHeaderConstant.TARGET_DATE.equals(keyHeader)) {
             continue;
           }
 

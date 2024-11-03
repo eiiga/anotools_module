@@ -15,7 +15,7 @@ public enum CsvHeaderConstant {
   VALUE3("value3"),
 
   // 日付
-  DATE("date(YYYYMMDD)");
+  TARGET_DATE("date(YYYYMMDD)");
 
   // フィールド変数
   private final String header;
