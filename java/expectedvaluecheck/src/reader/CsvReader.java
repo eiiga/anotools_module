@@ -32,6 +32,5 @@ public class CsvReader {
 
       return null;
     }
-
   }
 }

@@ -11,7 +11,7 @@ public class InputExpectedChecker {
    * 
    * @param expectedDatas 期待値HashMap
    * 
-   * @param inputDatas 予測値HashMap
+   * @param inputDatas 実測値HashMap
    */
   public static void expectedInputChecker(HashMap<Integer, HashMap<String, String>> expectedDatas,
       HashMap<Integer, HashMap<String, String>> inputDatas) {
@@ -80,7 +80,7 @@ public class InputExpectedChecker {
    * 
    * @param expectedDatas 期待値HashMap
    * 
-   * @param inputDatas 予測値HashMap
+   * @param inputDatas 実測値HashMap
    */
   public static void inputExpectedChecker(HashMap<Integer, HashMap<String, String>> expectedDatas,
       HashMap<Integer, HashMap<String, String>> inputDatas) {
@@ -93,11 +93,21 @@ public class InputExpectedChecker {
 
     System.out.println("##### 相互参照：実測値->期待値 #####");
 
+    // 期待値のキー項目分繰り返し
     for (Integer keyCount : inputDatas.keySet()) {
+
+      // チェックフラグセット
+      isData = true;
+
+      // 期待値が存在しない
       if (expectedDatas.get(keyCount) == null) {
+
         System.out.println("===== データ：" + keyCount + " =====");
+
         // csvヘッダ部配列要素分繰り返し
         for (CsvHeaderConstant keyHeader : keyHeaders) {
+
+          // 日付はスキップ
           if (CsvHeaderConstant.TARGET_DATE.equals(keyHeader)) {
             continue;
           }

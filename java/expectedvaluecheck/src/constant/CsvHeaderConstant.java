@@ -23,12 +23,10 @@ public enum CsvHeaderConstant {
   // コンストラクタ
   private CsvHeaderConstant(String header) {
     this.header = header;
-
   }
 
   // ゲッター
   public String getCsvHeaderConstant() {
     return header;
   }
-
 }

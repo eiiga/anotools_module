@@ -14,12 +14,10 @@ public enum FilePathConstant {
   // コンストラクタ
   private FilePathConstant(String filePath) {
     this.filePath = filePath;
-
   }
 
   // ゲッター
   public String getFilePathConstant() {
     return filePath;
   }
-
 }
