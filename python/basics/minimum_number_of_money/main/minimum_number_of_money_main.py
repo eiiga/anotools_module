@@ -36,7 +36,7 @@ def cal_minimum_number(total_money):
 
 # メイン処理
 if __name__ == '__main__':
-    # 試験用合計金額リスト
+    # 試験用合計金額リスト分繰り返し
     for total_money in TOTAL_MONEY_LIST:
         # 最小枚数の結果を取得
         result = cal_minimum_number(total_money)
