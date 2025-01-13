@@ -29,8 +29,6 @@ public class SampleInitializer {
 
   /* 言語科目以外のコンストラクタ
       @param ユーザ名
-      @param 国語
-      @param 英語
       @param 数学
       @param 科学
       @param 歴史
