@@ -63,7 +63,7 @@ public class RestPropertiesServiceImpl implements RestPropertiesService {
     PropertiesDTO others = new PropertiesDTO();
 
     // メッセージにNG情報をセット
-    others.setMessage("NG: Please chose a, b, or c in URL.");
+    others.setMessage("NG: Please choose a, b, or c in URL.");
 
     return others;
 
