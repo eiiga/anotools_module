@@ -17,6 +17,7 @@ public class RestServiceMasterCacheImpl implements RestServiceMasterCache {
   @Override
   @Cacheable("master")
   public List<MasterDTO> selectAll() {
+    System.out.println("selectAllが呼ばれました！！");
     return repository.find()
         .stream()
         .map(entity -> new MasterDTO(entity.getId(), entity.getData()))
