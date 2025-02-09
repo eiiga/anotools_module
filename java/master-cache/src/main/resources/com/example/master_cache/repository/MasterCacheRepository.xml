@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.master_cache.repository.MasterCacheRepository">
+
+  <select id="find" resultType="com.example.master_cache.entity.MasterEntity">
+    SELECT * FROM SAMPLE_MASTER_TABLE;
+  </select>
+
+</mapper>
