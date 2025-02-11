@@ -1,0 +1,6 @@
+
+-- サンプルテーブル
+CREATE TABLE SAMPLE_MASTER_TABLE (
+  id INT NOT NULL PRIMARY KEY,
+  data VARCHAR(3)
+);
