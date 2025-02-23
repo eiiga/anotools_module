@@ -1,5 +1,3 @@
-import io
-import sys
 from datetime import datetime, timedelta
 import unittest
 
@@ -13,6 +11,7 @@ WEEK_LIST = ['Sunday',
              'Thursday',
              'Friday',
              'Saturday']
+
 
 class TestIsWeekFormat(unittest.TestCase):
     """
@@ -55,24 +54,25 @@ class TestDateFormatter(unittest.TestCase):
 
     def test_date_formatter_leap_day(self):
         self.assertEqual(
-            date_formatter(2024,2,29),
+            date_formatter(2024, 2, 29),
             datetime(2024, 2, 29)
         )
 
     def test_date_formatter_non_day(self):
         self.assertEqual(
-            date_formatter(2025,2,29),
+            date_formatter(2025, 2, 29),
             None
         )
+
     def test_date_formatter_non_month(self):
         self.assertEqual(
-            date_formatter(2025,14,9),
+            date_formatter(2025, 14, 9),
             None
         )
 
     def test_date_formatter_non_year(self):
         self.assertEqual(
-            date_formatter(-2025,2,9),
+            date_formatter(-2025, 2, 9),
             None
         )
 
@@ -141,6 +141,7 @@ class TestSearchDay(unittest.TestCase):
         except Exception as e:
             self.fail("例外発生：" + str(e))
 
+
 class TestGetLeapdays(unittest.TestCase):
     """
     閏年を算出する処理 テストクラス
@@ -156,6 +157,7 @@ class TestGetLeapdays(unittest.TestCase):
 
     def test_get_leapdays_decrement_ok_1000(self):
         self.assertEqual(get_leapdays(1001, -1), 996)
+
 
 if __name__ == '__main__':
     unittest.main()

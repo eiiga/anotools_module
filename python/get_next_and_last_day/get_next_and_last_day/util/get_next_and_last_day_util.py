@@ -59,12 +59,12 @@ def search_day(
     # 閏年なら、閏年判定で取得した年で判定ループ
     if is_leap_year:
         year = get_leapdays(year, point)
-        # インプットの曜日と一致するまで繰り返し
+        # インプットの曜日と検索した年月日の曜日が一致するまで繰り返し
         while weekday != date_formatter(year, month, day).strftime('%A'):
             year = get_leapdays(year + point, point)
     # 閏年以外ならインクリメント/デクリメント
     else:
-        # インプットの曜日と一致するまで繰り返し
+        # インプットの曜日と検索した年月日の曜日が一致するまで繰り返し
         while weekday != date_formatter(year, month, day).strftime('%A'):
             year = year + point
 

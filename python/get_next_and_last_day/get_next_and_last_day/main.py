@@ -21,16 +21,14 @@ def main(month: int, day: int, weekday: str) -> None:
     # 2/29なら閏年判定
     if month == 2 and day == 29:
         is_leap_year = True
+    else:
+        # 日付のフォーマットチェックしてNGなら終了
+        if date_formatter(dt_default_year, month, day) is None:
+            return
 
     # 曜日判定処理して曜日でないなら処理終了
     if not is_week_format(weekday):
         return
-
-    # 閏年ではない場合
-    if not is_leap_year:
-        # 日付のフォーマットチェックしてNGなら終了
-        if date_formatter(dt_default_year, month, day) is None:
-            return
 
     # 処理日と入力した月日と曜日が一致した場合
     if (dt_now.month, dt_now.day) == (month, day) \
@@ -58,10 +56,10 @@ def main(month: int, day: int, weekday: str) -> None:
             dt_default_year, month, day, weekday, 1, is_leap_year)
 
     # 処理日 > 入力した月日の場合
-    elif  (dt_now.month, dt_now.day) > (month, day):
+    elif (dt_now.month, dt_now.day) > (month, day):
         # 直近過去の日付を検索（ex 処理年が2024なら2024スタート）
         search_day(
-            dt_default_year, month, day, weekday, -1, is_leap_year )
+            dt_default_year, month, day, weekday, -1, is_leap_year)
 
         # 直近未来の日付を検索（ex 処理年が2024なら2025からスタート）
         search_day(
@@ -69,4 +67,4 @@ def main(month: int, day: int, weekday: str) -> None:
 
 
 if __name__ == '__main__':
-    main(2,29,'Saturday')
+    main(2, 29, 'Saturday')
