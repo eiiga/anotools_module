@@ -31,15 +31,16 @@ def main(month: int, day: int, weekday: str) -> None:
         return
 
     # 処理日と入力した月日と曜日が一致した場合
-    if (dt_now.month, dt_now.day) == (month, day) \
-            and dt_now.strftime('%A') == weekday:
+    if (dt_now.month, dt_now.day) == (month, day):
 
         # 直近過去の日付を検索（ex 処理年が2024なら2023スタート）
         search_day(
             dt_default_year - 1, month, day, weekday, -1, is_leap_year)
 
-        # 処理日を出力
-        print_day(date_formatter(dt_default_year, month, day))
+        # 曜日が一緒の場合
+        if dt_now.strftime('%A') == weekday:
+            # 処理日を出力
+            print_day(date_formatter(dt_default_year, month, day))
 
         # 直近未来の日付を検索（ex 処理年が2024なら2025からスタート）
         search_day(
@@ -67,4 +68,5 @@ def main(month: int, day: int, weekday: str) -> None:
 
 
 if __name__ == '__main__':
-    main(2, 29, 'Saturday')
+    # ここの日付と曜日を操作する
+    main(2, 29, 'Wednesday')

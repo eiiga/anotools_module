@@ -73,7 +73,7 @@ def search_day(
 
 def get_leapdays(year: int, point: int):
     """
-    閏年を算出する処理
+    閏年取得処理
     :param year: 年
     :param point: 加算減算値（-1/1）
     :return: 年（閏年）
