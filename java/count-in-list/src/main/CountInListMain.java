@@ -21,34 +21,34 @@ public class CountInListMain {
     Map<Integer, Integer> mapData2 = counter(LIST_DATA_2);
     System.out.println(mapData2);
 
-    Map<Integer, CountInListEnum> resultMap = new HashMap<>();
+    Map<Integer, String> resultMap = new HashMap<>();
 
     for (int numFrom1 : mapData1.keySet()) {
       // list1の値がlist2に存在する場合
       if (mapData2.containsKey(numFrom1)) {
         // list1の件数 > list2の件数
         if (mapData1.get(numFrom1) > mapData2.get(numFrom1)) {
-          resultMap.put(numFrom1, CountInListEnum.FROM_FIRST_LARGE);
+          resultMap.put(numFrom1, CountInListEnum.FROM_FIRST_LARGE.getCountInListEnum());
 
         // list1の件数 < list2の件数
         } else if (mapData1.get(numFrom1) < mapData2.get(numFrom1)) {
-          resultMap.put(numFrom1, CountInListEnum.FROM_SECOND_LARGE);
+          resultMap.put(numFrom1, CountInListEnum.FROM_SECOND_LARGE.getCountInListEnum());
 
         // list1の件数 = list2の件数
         } else {
-          resultMap.put(numFrom1, CountInListEnum.EQUAL);
+          resultMap.put(numFrom1, CountInListEnum.EQUAL.getCountInListEnum());
         }
 
       // list1の値がlist2に存在しない場合
       } else {
-        resultMap.put(numFrom1, CountInListEnum.FROM_FIRST_ONLY);
+        resultMap.put(numFrom1, CountInListEnum.FROM_FIRST_ONLY.getCountInListEnum());
       }
     }
 
     for (int numFrom2 : mapData2.keySet()) {
       // list2の値がlist1に存在しない場合
       if (!mapData1.containsKey(numFrom2)) {
-        resultMap.put(numFrom2, CountInListEnum.FROM_SECOND_ONLY);
+        resultMap.put(numFrom2, CountInListEnum.FROM_SECOND_ONLY.getCountInListEnum());
       }
     }
 
