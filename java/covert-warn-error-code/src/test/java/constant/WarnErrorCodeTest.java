@@ -31,9 +31,23 @@ public class WarnErrorCodeTest {
   }
 
   @Test
-  @DisplayName("正常系：想定外コード")
+  @DisplayName("正常系：想定外コード：ABC1")
   void otherCodeTestNormal() {
     assertEquals(WarnErrorCode.getConvertCode("ABC1"), "9999");
+
+  }
+
+  @Test
+  @DisplayName("正常系：想定外コード：Warn6")
+  void otherWarnCodeTestNormal() {
+    assertEquals(WarnErrorCode.getConvertCode("WARN6"), "9999");
+
+  }
+
+  @Test
+  @DisplayName("正常系：想定外コード：ERROR11")
+  void otherErrorCodeTestNormal() {
+    assertEquals(WarnErrorCode.getConvertCode("ERROR11"), "9999");
 
   }
 
