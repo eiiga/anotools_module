@@ -16,7 +16,7 @@ public class WarnErrorCodeTest {
     for (int i = 1; i <= 5; i++) {
       String inputWarn = "WARN" + i;
       System.out.printf("ケース%s: %s%n", i, inputWarn);
-      assertEquals(WarnErrorCode.getConvertCode(inputWarn), String.format("%04d", i));
+      assertEquals(String.format("%04d", i), WarnErrorCode.getConvertCode(inputWarn));
     }
   }
 
@@ -26,28 +26,28 @@ public class WarnErrorCodeTest {
     for (int i = 1; i <= 10; i++) {
       String inputError = "ERROR" + i;
       System.out.printf("ケース%s: %s%n", i, inputError);
-      assertEquals(WarnErrorCode.getConvertCode(inputError), "1" + String.format("%03d", i));
+      assertEquals("1" + String.format("%03d", i), WarnErrorCode.getConvertCode(inputError));
     }
   }
 
   @Test
   @DisplayName("正常系：想定外コード：ABC1")
   void otherCodeTestNormal() {
-    assertEquals(WarnErrorCode.getConvertCode("ABC1"), "9999");
+    assertEquals("9999", WarnErrorCode.getConvertCode("ABC1"));
 
   }
 
   @Test
   @DisplayName("正常系：想定外コード：Warn6")
   void otherWarnCodeTestNormal() {
-    assertEquals(WarnErrorCode.getConvertCode("WARN6"), "9999");
+    assertEquals("9999", WarnErrorCode.getConvertCode("WARN6"));
 
   }
 
   @Test
   @DisplayName("正常系：想定外コード：ERROR11")
   void otherErrorCodeTestNormal() {
-    assertEquals(WarnErrorCode.getConvertCode("ERROR11"), "9999");
+    assertEquals("9999", WarnErrorCode.getConvertCode("ERROR11"));
 
   }
 
