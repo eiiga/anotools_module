@@ -1,0 +1,31 @@
+<beans xmlns:int="http://www.springframework.org/schema/integration"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.springframework.org/schema/beans"
+  xsi:schemaLocation="
+         http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/integration
+         http://www.springframework.org/schema/integration/spring-integration.xsd">
+  
+  <bean class="com.example.router_sample.handler.MessageHandler" id="handler"/>
+
+  <!-- 入出力チャネル -->
+  <int:channel id="typeBChannel"/>
+  <int:channel id="defaultChannel"/>
+
+  <!-- ルーター定義 -->
+  <int:channel id="inputChannel"/>
+
+  <!-- 処理 -->
+  <int:channel id="typeAChannel"/>
+  <int:router default-output-channel="defaultChannel" expression="payload.type"
+    input-channel="inputChannel">
+    <int:mapping channel="typeAChannel" value="A"/>
+    <int:mapping channel="typeBChannel" value="B"/>
+  </int:router>
+
+  <int:service-activator input-channel="defaultChannel" method="handleDefault" ref="handler"/>
+  <int:service-activator input-channel="typeAChannel" method="handleA" ref="handler"/>
+  <int:service-activator input-channel="typeBChannel" method="handleB" ref="handler"/>
+
+</beans>
