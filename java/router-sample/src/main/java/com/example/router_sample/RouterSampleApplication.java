@@ -20,11 +20,9 @@ public class RouterSampleApplication {
   @Bean
   public CommandLineRunner run(@Qualifier("inputChannel") MessageChannel inputChannel) {
     return args -> {
-      MessagePayload payload = new MessagePayload("C", "ルーティングテスト");
+      MessagePayload payload = new MessagePayload("A", "ルーティングテストA");
       Message<?> message = MessageBuilder.withPayload(payload).build();
       inputChannel.send(message);
     };
   }
-
-
 }
