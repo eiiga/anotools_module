@@ -1,5 +1,7 @@
 package com.practice.annotation.anotools_spring.controller;
 
+import com.practice.annotation.anotools_spring.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class UserController {
 
+  @Autowired
+  private UserService userService;
+
   @PostMapping("/users")
   public User createUser(@RequestBody User user) {
     // 受け取ったUserを加工して返す例
@@ -26,5 +31,10 @@ public class UserController {
     User user = new User();
     user.setName("test" + id);
     return user;
+  }
+
+  @GetMapping("/users/getid")
+  public int getUserId() {
+    return userService.getUserId();
   }
 }
