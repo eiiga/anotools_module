@@ -1,6 +1,9 @@
 package com.practice.annotation.anotools_spring.controller;
 
+import com.practice.annotation.anotools_spring.dto.UserDTO;
 import com.practice.annotation.anotools_spring.service.UserService;
+import java.util.List;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,10 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 // メソッドの戻り値を「HTMLビュー」ではなく「JSON」などのレスポンスボディとして返す
 @RequestMapping("/api")
+@RequiredArgsConstructor
 public class UserController {
 
   @Autowired
-  private UserService userService;
+  private final UserService userService;
 
   @PostMapping("/users")
   public User createUser(@RequestBody User user) {
@@ -36,5 +40,10 @@ public class UserController {
   @GetMapping("/users/getid")
   public int getUserId() {
     return userService.getUserId();
+  }
+
+  @GetMapping("/users/all")
+  public List<UserDTO> getAllUser() {
+    return userService.selectAllUser();
   }
 }

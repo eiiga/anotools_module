@@ -1,14 +1,11 @@
 package com.practice.annotation.anotools_spring.service;
 
-import java.util.concurrent.ThreadLocalRandom;
-import org.springframework.stereotype.Service;
+import com.practice.annotation.anotools_spring.dto.UserDTO;
+import java.util.List;
 
-@Service
-public class UserService {
+public interface UserService {
 
-  public int getUserId() {
+  public int getUserId();
 
-    // 1から100までのランダムな数字を返す
-    return ThreadLocalRandom.current().nextInt(1, 101);
-  }
+  public List<UserDTO> selectAllUser();
 }
