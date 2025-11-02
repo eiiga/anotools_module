@@ -15,7 +15,7 @@ public class UserServiceImpl implements UserService {
   private final UserRepository userRepository;
 
   @Override
-  public int getUserId() {
+  public int getUserRandomId() {
 
     // 1から100までのランダムな数字を返す
     return ThreadLocalRandom.current().nextInt(1, 101);

@@ -39,7 +39,7 @@ public class UserController {
 
   @GetMapping("/users/getid")
   public int getUserId() {
-    return userService.getUserId();
+    return userService.getUserRandomId();
   }
 
   @GetMapping("/users/all")
