@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface UserService {
 
-  public int getUserId();
+  public int getUserRandomId();
 
   public List<UserDTO> selectAllUser();
 }
