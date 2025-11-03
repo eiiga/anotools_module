@@ -1,6 +1,7 @@
 package com.practice.annotation.anotools_spring.controller;
 
 import com.practice.annotation.anotools_spring.dto.UserDTO;
+import com.practice.annotation.anotools_spring.service.UserInfoService;
 import com.practice.annotation.anotools_spring.service.UserService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +24,9 @@ public class UserController {
   @Autowired
   private final UserService userService;
 
+  @Autowired
+  private final UserInfoService userInfoService;
+
   @PostMapping("/users")
   public User createUser(@RequestBody User user) {
     // 受け取ったUserを加工して返す例
@@ -44,6 +48,6 @@ public class UserController {
 
   @GetMapping("/users/all")
   public List<UserDTO> getAllUser() {
-    return userService.selectAllUser();
+    return userInfoService.selectAllUser();
   }
 }
