@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -65,5 +66,22 @@ public class UserController {
       return ResponseEntity.status(HttpStatus.NOT_FOUND)
           .body(Map.of("message", "User not found"));
     }
+  }
+
+  @PutMapping("/users/update")
+  public String putOneUser(@RequestBody UserDTO userDTO) {
+    // 1件更新
+    boolean resultUpdateOneUser = userInfoService.updateOneUser(userDTO);
+
+    String resultBody = "";
+
+    // 処理結果で返すJsonの値を設定
+    if (resultUpdateOneUser) {
+      resultBody = "{\"result\":\"ok\"}";
+    } else {
+      resultBody = "{\"result\":\"ng\"}";
+    }
+
+    return resultBody;
   }
 }

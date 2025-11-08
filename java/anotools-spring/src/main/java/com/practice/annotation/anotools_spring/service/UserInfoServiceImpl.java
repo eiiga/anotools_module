@@ -28,4 +28,9 @@ public class UserInfoServiceImpl implements UserInfoService {
         .map(user -> new UserDTO(user.getId(), user.getName(), user.getMailAddress()));
 
   }
+
+  @Override
+  public boolean updateOneUser(UserDTO userDTO) {
+    return userRepository.updateOne(userDTO);
+  }
 }

@@ -13,4 +13,12 @@
     SELECT * FROM M_USER_INFO WHERE id = #{id}
   </select>
 
+  <update id="updateOne" parameterType="com.practice.annotation.anotools_spring.dto.UserDTO">
+    UPDATE M_USER_INFO
+    SET
+    name = #{mailAddress},
+    mailAddress = #{name}
+    WHERE id = #{id}
+  </update>
+
 </mapper>

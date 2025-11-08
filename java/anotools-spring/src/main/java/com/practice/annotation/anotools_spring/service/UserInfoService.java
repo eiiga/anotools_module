@@ -9,4 +9,6 @@ public interface UserInfoService {
   public List<UserDTO> selectAllUser();
 
   public Optional<UserDTO> selectOneUser(long id);
+
+  public boolean updateOneUser(UserDTO userDto);
 }
