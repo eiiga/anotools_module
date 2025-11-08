@@ -9,4 +9,8 @@
     SELECT * FROM M_USER_INFO
   </select>
 
+  <select id="findOne" resultType="com.practice.annotation.anotools_spring.entity.UserEntity">
+    SELECT * FROM M_USER_INFO WHERE id = #{id}
+  </select>
+
 </mapper>
