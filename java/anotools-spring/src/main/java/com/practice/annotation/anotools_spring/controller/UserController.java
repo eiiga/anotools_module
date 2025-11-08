@@ -4,9 +4,13 @@ import com.practice.annotation.anotools_spring.dto.UserDTO;
 import com.practice.annotation.anotools_spring.service.UserInfoService;
 import com.practice.annotation.anotools_spring.service.UserService;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,8 +50,20 @@ public class UserController {
     return userService.getUserRandomId();
   }
 
-  @GetMapping("/users/all")
+  @GetMapping("/users/info/all")
   public List<UserDTO> getAllUser() {
     return userInfoService.selectAllUser();
+  }
+
+  @GetMapping("/users/info/{id}")
+  public ResponseEntity<?> getOneUser(@PathVariable Long id) {
+    Optional<UserDTO> userOpt = userInfoService.selectOneUser(id);
+
+    if (userOpt.isPresent()) {
+      return ResponseEntity.ok(userOpt.get());
+    } else {
+      return ResponseEntity.status(HttpStatus.NOT_FOUND)
+          .body(Map.of("message", "User not found"));
+    }
   }
 }
