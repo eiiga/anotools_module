@@ -14,4 +14,6 @@ public interface UserRepository {
   Optional<UserEntity> findOne(long id);
 
   boolean updateOne(UserDTO userDTO);
+
+  boolean insertOne(UserDTO userDTO);
 }

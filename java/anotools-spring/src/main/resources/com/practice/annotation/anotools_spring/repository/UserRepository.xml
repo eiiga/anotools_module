@@ -16,9 +16,15 @@
   <update id="updateOne" parameterType="com.practice.annotation.anotools_spring.dto.UserDTO">
     UPDATE M_USER_INFO
     SET
-    name = #{mailAddress},
-    mailAddress = #{name}
+    name = #{name},
+    mailAddress = #{mailAddress}
     WHERE id = #{id}
   </update>
+
+  <insert id="insertOne" parameterType="com.practice.annotation.anotools_spring.dto.UserDTO">
+    <!-- idは自動採番 -->
+    INSERT INTO M_USER_INFO(name, mailAddress)
+    VALUES(#{name}, #{mailAddress})
+  </insert>
 
 </mapper>

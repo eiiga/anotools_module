@@ -84,4 +84,22 @@ public class UserController {
 
     return resultBody;
   }
+
+  @PostMapping("/users/insert")
+  public String postOneUser(@RequestBody UserDTO userDTO) {
+    // 1件追加
+    boolean resultInsertOneUser = userInfoService.insertOneUser(userDTO);
+
+    String resultBody = "";
+
+    // 処理結果で返すJsonの値を設定
+    if (resultInsertOneUser) {
+      resultBody = "{\"result\":\"ok\"}";
+    } else {
+      resultBody = "{\"result\":\"ng\"}";
+    }
+
+    return resultBody;
+
+  }
 }
