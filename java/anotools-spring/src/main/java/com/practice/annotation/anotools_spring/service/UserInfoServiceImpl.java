@@ -1,6 +1,7 @@
 package com.practice.annotation.anotools_spring.service;
 
 import com.practice.annotation.anotools_spring.dto.UserDTO;
+import com.practice.annotation.anotools_spring.exception.BusinessException;
 import com.practice.annotation.anotools_spring.repository.UserRepository;
 import java.util.List;
 import java.util.Optional;
@@ -31,6 +32,19 @@ public class UserInfoServiceImpl implements UserInfoService {
 
   @Override
   public boolean updateOneUser(UserDTO userDTO) {
-    return userRepository.updateOne(userDTO);
+    try {
+      return userRepository.updateOne(userDTO);
+    } catch (Exception e) {
+      throw new BusinessException("ユーザの更新に失敗しました");
+    }
+  }
+
+  @Override
+  public boolean insertOneUser(UserDTO userDTO) {
+    try {
+      return userRepository.insertOne(userDTO);
+    } catch (Exception e) {
+      throw new BusinessException("ユーザの追加に失敗しました");
+    }
   }
 }
