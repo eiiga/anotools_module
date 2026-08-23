@@ -1,0 +1,6 @@
+-- user情報テーブル
+CREATE TABLE M_USER_INFO (
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(99) NOT NULL,
+  mailAddress VARCHAR(999)
+);
